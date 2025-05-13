@@ -3,6 +3,7 @@ import { NotFound } from '../pages/NotFound.jsx'
 import Home from '../pages/front/Home'
 import App from '../App.jsx'
 import { createHashRouter } from 'react-router-dom'
+import FrontLayout from '../pages/front/FrontLayout.jsx'
 import FrontLayout2 from '../pages/front/FrontLayout2.jsx'
 import Products from '../pages/front/Products.jsx'
 import ProductDetail from '../pages/front/ProductDetail.jsx'
@@ -12,16 +13,22 @@ import Login from '../pages/Login.jsx'
 import AdminProducts from '../pages/admin/AdminProducts.jsx'
 import AdminOrders from '../pages/admin/AdminOrders.jsx'
 import AdminCoupons from '../pages/admin/AdminCoupons.jsx'
+import FindImage from '../pages/front/FindImage.jsx'
 
 const routes = [
   {
     path: '/',
     // element: <App></App>,
-    element: <FrontLayout2></FrontLayout2>,
+    // element: <FrontLayout2></FrontLayout2>,
+    element: <FrontLayout></FrontLayout>,
     children: [
       {
         index: true,
         element: <Home></Home>
+      },
+      {
+        path:'findImage',
+        element:<FindImage></FindImage>
       },
       {
         path: 'products',

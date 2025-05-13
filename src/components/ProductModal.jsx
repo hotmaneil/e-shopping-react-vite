@@ -6,6 +6,8 @@ import {
   handleErrorMessage
 } from '../store/messageStore'
 
+const { VITE_APP_ApiUrl, VITE_APP_ApiPath } = import.meta.env
+
 function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
   const [tempData, setTempData] = useState({
     data: {
@@ -64,12 +66,14 @@ function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
     }
   }
 
+  const url = `${VITE_APP_ApiUrl}/v2/api/${VITE_APP_ApiPath}`
   const submit = async () => {
     try {
-      let api = `/v2/api/${process.env.REACT_APP_API_PATH}/admin/product`
+      
+      let api = `${url}/admin/product`
       let method = 'post'
       if (type === 'edit') {
-        api = `/v2/api/${process.env.REACT_APP_API_PATH}/admin/product/${tempProduct.id}`
+        api = `${url}/admin/product/${tempProduct.id}`
         method = 'put'
       }
 
@@ -102,7 +106,7 @@ function ProductModal({ closeProductModal, getProducts, type, tempProduct }) {
 
     try {
       const res = await axios.post(
-        `/v2/api/${process.env.REACT_APP_API_PATH}/admin/upload`,
+        `${url}/admin/upload`,
         formData
       )
       console.log('file-to-upload res', res)

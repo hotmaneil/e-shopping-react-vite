@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import MessageToast from '../../components/MessageToast'
+// import MessageToast from '../../components/MessageToast'
 
 const { VITE_APP_ApiUrl,VITE_APP_ApiPath } = import.meta.env
 
@@ -29,7 +29,7 @@ function FrontLayout2() {
   return (
     <>
       <Navbar cartData={cartData} />
-      <MessageToast />
+      {/* <MessageToast /> */}
       <Outlet context={{ getCart, cartData }}></Outlet>
 
       <div className="bg-dark">
